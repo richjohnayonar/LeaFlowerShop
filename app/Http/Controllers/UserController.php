@@ -76,10 +76,13 @@ class UserController extends Controller
         return redirect('/users/update/' . $user->id);
     }
 
-    
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $user = user::find($id);
+        $user->delete();
+        
+        // Redirect to the List of Users
+        return redirect('/users');
     }
 
 }

@@ -18,12 +18,12 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    <h2 class="float-left">
+                    <h2 class="float-left  ">
                         {{ $header }}
                     </h2>
 
                     <a href="{{ url('/users/add') }}">
-                        <button class="float-right rounded-full bg-green-500 p-1 hover:bg-sky-700">
+                        <button class="float-right rounded-full bg-green-500 p-1 hover:bg-sky-700 mb-2 ">
                             Add Users
                         </button>
                     </a>
@@ -31,23 +31,20 @@
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Actions</th>
+                                <th class = "text-left border-solid border-2 border-light-blue-500 p-1 bg-red-300">Name</th>
+                                <th class = "border-solid border-2 border-light-blue-500 p-1 bg-red-300">Email</th>
+                                <th class = "border-solid border-2 border-light-blue-500 p-1 bg-red-300">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach ($users as $user)
                                 <tr>
-                                    <td> {{ $user->name }} </td>
-                                    <td class="text-center"> {{ $user->email }}</td>
-                                    <td class="text-center">
+                                    <td class = "border-solid border-2 border-light-blue-500 p-1"> {{ $user->name }} </td>
+                                    <td class="text-center border-solid border-2 border-light-blue-500 p-1"> {{ $user->email }}</td>
+                                    <td class="text-center border-solid border-2 border-light-blue-500 p-1">
                                         <a href="{{ url('/users/update/' . $user->id) }}">
                                             <button class="rounded-full bg-sky-500 p-1 hover:bg-sky-700">Update</button>
-                                        </a>
-                                        <a href="{{ url('/users/password/' . $user->id) }}">
-                                            <button class="rounded-full bg-sky-500 p-1 hover:bg-sky-700">Password</button>
                                         </a>
                                         <a href="{{ url('/users/delete/' . $user->id) }}">
                                             <button class="rounded-full bg-sky-500 p-1 hover:bg-sky-700">Delete</button>
@@ -55,7 +52,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-
+ 
                         </tbody>
                     </table>
 

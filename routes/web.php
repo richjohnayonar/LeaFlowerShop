@@ -50,7 +50,15 @@ Route::get('/sliders/create', [SliderController::class, 'create'])
 Route::post('/sliders/create', [SliderController::class, 'store'])
         ->middleware(['auth', 'verified'])
         ->name('create');
-
+Route::get('/sliders/{slider}/edit', [SliderController::class, 'edit'])
+        ->middleware(['auth', 'verified'])
+        ->name('edit');
+Route::put('/sliders/{slider}', [SliderController::class, 'update'])
+        ->middleware(['auth', 'verified'])
+        ->name('update');
+Route::get('/sliders/{slider}/delete', [SliderController::class, 'destroy'])
+        ->middleware(['auth', 'verified'])
+        ->name('destroy');
 
 
 Route::middleware('auth')->group(function () {
